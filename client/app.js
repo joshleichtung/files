@@ -10,9 +10,12 @@ class App extends Component {
 		super(props)
 
 		this.state = {
-			filesAndFolders: []
+			filesAndFolders: [],
+			showNewFolderDialog: false
 		}
 		this.getFilesAndFolders = this.getFilesAndFolders.bind(this)
+		this.openNewFolderDialog = this.openNewFolderDialog.bind(this)
+		this.closeNewFolderDialog = this.closeNewFolderDialog.bind(this)
 	}
 
 	componentDidMount() {
@@ -25,11 +28,23 @@ class App extends Component {
 			.catch(error => console.log("Error loading file/folder list - " + error))
 	}
 
+	closeNewFolderDialog() {
+		this.setState({showNewFolderDialog: false})
+	}
+
+	openNewFolderDialog() {
+		this.setState({showNewFolderDialog: true})
+	}
+
+
 	render() {
 		return (
 			<div className="files-app">
 				<NewFilesFolders
 					getFilesAndFolders={this.getFilesAndFolders}
+					showNewFolderDialog={this.state.showNewFolderDialog}
+					openNewFolderDialog={this.openNewFolderDialog}
+					closeNewFolderDialog={this.closeNewFolderDialog}
 				/>
 				<ShowFilesFolders
 					filesAndFolders={this.state.filesAndFolders}

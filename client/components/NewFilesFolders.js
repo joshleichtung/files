@@ -5,32 +5,14 @@ import Modal from 'react-modal'
 import NewFolderDialog from './NewFolderDialog'
 
 class NewFilesFolders extends Component {
-	constructor(props){
-		super(props)
-		this.state = {
-			showNewFolderDialog: false
-		}
-
-		this.openNewFolderDialog = this.openNewFolderDialog.bind(this)
-		this.closeNewFolderDialog = this.closeNewFolderDialog.bind(this)
-	}
-
-	closeNewFolderDialog() {
-		this.setState({showNewFolderDialog: false})
-	}
-
-	openNewFolderDialog() {
-		this.setState({showNewFolderDialog: true})
-	}
-
 	render() {
 		let newFolderButton = (
-			<button onClick={this.openNewFolderDialog}>New Folder</button>
+			<button onClick={this.props.openNewFolderDialog}>New Folder</button>
 		)
 
 		let newFolderForm = (
 			<NewFolderDialog
-				closeNewFolderDialog={this.closeNewFolderDialog}
+				closeNewFolderDialog={this.props.closeNewFolderDialog}
 				getFilesAndFolders={this.props.getFilesAndFolders}
 				parent="root"
 			/>
@@ -38,9 +20,9 @@ class NewFilesFolders extends Component {
 
 		return (
 			<div className="new-files-folders">
-			<button onClick={this.openNewFolderDialog}>New Folder</button>
+			<button onClick={this.props.openNewFolderDialog}>New Folder</button>
 			<Modal
-				isOpen={this.state.showNewFolderDialog}
+				isOpen={this.props.showNewFolderDialog}
 			>
 			{newFolderForm}
 			</Modal>
