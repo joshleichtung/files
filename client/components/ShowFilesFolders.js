@@ -13,10 +13,17 @@ class ShowFilesFolders extends Component {
   render() {
     return (
       <div className="show-files-folders">
-      <h1>File List</h1>
-        <ul>
+      <h1>Files</h1>
+        <table>
+          <tr>
+            <th></th>
+            <th>Name</th>
+            <th>size</th>
+            <th>Last Modified</th>
+            <th></th>
+            </tr>
           {this.renderFilesAndFolders()}
-        </ul>
+        </table>
       </div>
     )
   }
