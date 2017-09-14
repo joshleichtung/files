@@ -28,7 +28,10 @@ class NewFilesFolders extends Component {
 		)
 
 		let newFolderForm = (
-			<NewFolderDialog closeNewFolderDialog={this.closeNewFolderDialog} />
+			<NewFolderDialog
+				closeNewFolderDialog={this.closeNewFolderDialog}
+				getFilesAndFolders={this.props.getFilesAndFolders}
+			/>
 		)
 
 		return (
