@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import axios from 'axios'
+import Modal from 'react-modal'
 
 import NewFolderDialog from './NewFolderDialog'
 
@@ -31,12 +32,18 @@ class NewFilesFolders extends Component {
 			<NewFolderDialog
 				closeNewFolderDialog={this.closeNewFolderDialog}
 				getFilesAndFolders={this.props.getFilesAndFolders}
+				parent="root"
 			/>
 		)
 
 		return (
 			<div className="new-files-folders">
-			{this.state.showNewFolderDialog ? newFolderForm : newFolderButton}
+			<button onClick={this.openNewFolderDialog}>New Folder</button>
+			<Modal
+				isOpen={this.state.showNewFolderDialog}
+			>
+			{newFolderForm}
+			</Modal>
 			</div>
 		)
 	}

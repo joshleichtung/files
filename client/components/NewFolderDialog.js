@@ -29,9 +29,12 @@ class NewFolderDialog extends Component {
   render() {
     return (
       <div className="new-folder-dialog">
+      <h2>New Folder</h2>
+      <h3>Containing Folder: {this.props.parent}</h3>
         <form id="new-folder-form" onSubmit={this.createNewFolder}>
-          <input placeholder="Enter File Name" onChange={this.handleFormInput} />
+          <input placeholder="Enter Folder Name" onChange={this.handleFormInput} />
           <button type="submit">Create Folder</button>
+          <button onClick={this.props.closeNewFolderDialog}>Cancel</button>
         </form>
       </div>
     )
