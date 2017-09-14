@@ -6,7 +6,7 @@ class ShowFilesFolders extends Component {
   renderFilesAndFolders() {
     if (this.props.filesAndFolders.length) {
       return (
-        this.props.filesAndFolders.map(item => <FolderListItem folder={item} key={item.id} id={item.id} />)
+        this.props.filesAndFolders.map((item, index) => <FolderListItem key={item._id} folder={item}  id={item.id} />)
       )
     }
   }
@@ -15,14 +15,18 @@ class ShowFilesFolders extends Component {
       <div className="show-files-folders">
       <h1>Files</h1>
         <table>
-          <tr>
-            <th></th>
-            <th>Name</th>
-            <th>size</th>
-            <th>Last Modified</th>
-            <th></th>
+          <thead>
+            <tr>
+              <th></th>
+              <th>Name</th>
+              <th>size</th>
+              <th>Last Modified</th>
+              <th></th>
             </tr>
-          {this.renderFilesAndFolders()}
+          </thead>
+          <tbody>
+            {this.renderFilesAndFolders()}
+          </tbody>
         </table>
       </div>
     )
