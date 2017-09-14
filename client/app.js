@@ -1,12 +1,15 @@
 import React, { Component } from 'react'
 
-import './styles.css'
+// import './styles.css'
+import NewFilesFolders from './components/NewFilesFolders'
+import ShowFilesFolders from './components/ShowFilesFolders'
 
 class App extends Component {
 	render() {
 		return (
-			<div className="app-placeholder">
-				INSERT AWESOME FILES CHALLENGE SOLUTION HERE
+			<div className="files-app">
+				<NewFilesFolders />
+				<ShowFilesFolders />
 			</div>
 		)
 	}
