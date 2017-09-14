@@ -24,8 +24,16 @@ class App extends Component {
 
 	getFilesAndFolders() {
 		axios.get('/api/files')
-			.then(response => this.setState({filesAndFolders: response.data}))
+			.then(response => {
+				this.setState({filesAndFolders: response.data})
+			})
+			.then()
 			.catch(error => console.log("Error loading file/folder list - " + error))
+	}
+
+	getSubs(folderId){
+		let subFolders = axios.get(`/api/folders/${folder._id}/items`)
+
 	}
 
 	closeNewFolderDialog() {
