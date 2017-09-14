@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import axios from 'axios'
 
 import NewFolderDialog from './NewFolderDialog'
 
@@ -11,21 +12,13 @@ class NewFilesFolders extends Component {
 
 		this.openNewFolderDialog = this.openNewFolderDialog.bind(this)
 		this.closeNewFolderDialog = this.closeNewFolderDialog.bind(this)
-		this.createNewFolder = this.createNewFolder.bind(this)
 	}
 
 	closeNewFolderDialog() {
 		this.setState({showNewFolderDialog: false})
 	}
 
-	createNewFolder(e) {
-		e.preventDefault()
-		console.log("create new folder")
-		this.closeNewFolderDialog()
-	}
-
 	openNewFolderDialog() {
-		console.log("open new folder")
 		this.setState({showNewFolderDialog: true})
 	}
 
@@ -35,10 +28,7 @@ class NewFilesFolders extends Component {
 		)
 
 		let newFolderForm = (
-        <form id="new-folder-form" onSubmit={this.createNewFolder}>
-          <input placeholder="Enter File Name" />
-          <button type="submit">Create Folder</button>
-        </form>
+			<NewFolderDialog closeNewFolderDialog={this.closeNewFolderDialog} />
 		)
 
 		return (
