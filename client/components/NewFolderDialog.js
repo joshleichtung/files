@@ -19,6 +19,7 @@ class NewFolderDialog extends Component {
 	createNewFolder(e) {
 		e.preventDefault()
 		console.log(this.state.newFolderName)
+    let url = '/api/folders' + this.props.parent
 		axios.post('/api/folders', {name: this.state.newFolderName})
       .then(response => this.props.getFilesAndFolders())
       .catch(error => console.log("Create Folder Error - " + error))

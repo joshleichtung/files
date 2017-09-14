@@ -23,6 +23,7 @@ class NewFilesFolders extends Component {
 			<button onClick={this.props.openNewFolderDialog}>New Folder</button>
 			<Modal
 				isOpen={this.props.showNewFolderDialog}
+				contentLabel="new-file-modal"
 			>
 			{newFolderForm}
 			</Modal>

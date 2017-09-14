@@ -48,6 +48,9 @@ class App extends Component {
 				/>
 				<ShowFilesFolders
 					filesAndFolders={this.state.filesAndFolders}
+					showNewFolderDialog={this.state.showNewFolderDialog}
+					openNewFolderDialog={this.openNewFolderDialog}
+					closeNewFolderDialog={this.closeNewFolderDialog}
 				/>
 			</div>
 		)
